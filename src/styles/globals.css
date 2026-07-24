@@ -1,50 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light;
-  --background: #ffffff;
-  --foreground: #171717;
-  --card: #ffffff;
-  --card-foreground: #171717;
-  --popover: #ffffff;
-  --popover-foreground: #171717;
-  --primary: #0f172a;
-  --primary-foreground: #f8fafc;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-  --muted: #f8fafc;
-  --muted-foreground: #64748b;
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
-  --destructive: #ef4444;
-  --destructive-foreground: #f8fafc;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #94a3b8;
+  color-scheme: dark;
+  --background: rgb(2 6 23);
+  --foreground: rgb(226 232 240);
+  --card: rgb(15 23 42 / 0.72);
+  --card-foreground: rgb(241 245 249);
+  --popover: rgb(15 23 42 / 0.9);
+  --popover-foreground: rgb(241 245 249);
+  --primary: rgb(103 232 249);
+  --primary-foreground: rgb(2 6 23);
+  --secondary: rgb(30 41 59 / 0.82);
+  --secondary-foreground: rgb(226 232 240);
+  --muted: rgb(15 23 42 / 0.58);
+  --muted-foreground: rgb(148 163 184);
+  --accent: rgb(34 211 238 / 0.18);
+  --accent-foreground: rgb(224 242 254);
+  --destructive: rgb(248 113 113);
+  --destructive-foreground: rgb(15 23 42);
+  --border: rgb(148 163 184 / 0.16);
+  --input: rgb(148 163 184 / 0.18);
+  --ring: rgb(103 232 249 / 0.7);
   --radius: 0.75rem;
 }
 
-.dark {
-  color-scheme: dark;
-  --background: #020617;
-  --foreground: #e2e8f0;
-  --card: #0f172a;
-  --card-foreground: #e2e8f0;
-  --popover: #0f172a;
-  --popover-foreground: #e2e8f0;
-  --primary: #f8fafc;
-  --primary-foreground: #0f172a;
-  --secondary: #1e293b;
-  --secondary-foreground: #e2e8f0;
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --accent: #1e293b;
-  --accent-foreground: #e2e8f0;
-  --destructive: #f87171;
-  --destructive-foreground: #0f172a;
-  --border: #334155;
-  --input: #334155;
-  --ring: #64748b;
+.light {
+  color-scheme: light;
+  --background: rgb(248 250 252);
+  --foreground: rgb(15 23 42);
+  --card: rgb(255 255 255 / 0.82);
+  --card-foreground: rgb(15 23 42);
+  --popover: rgb(255 255 255 / 0.96);
+  --popover-foreground: rgb(15 23 42);
+  --primary: rgb(15 23 42);
+  --primary-foreground: rgb(248 250 252);
+  --secondary: rgb(241 245 249);
+  --secondary-foreground: rgb(15 23 42);
+  --muted: rgb(241 245 249 / 0.9);
+  --muted-foreground: rgb(71 85 105);
+  --accent: rgb(14 165 233 / 0.12);
+  --accent-foreground: rgb(15 23 42);
+  --destructive: rgb(220 38 38);
+  --destructive-foreground: rgb(248 250 252);
+  --border: rgb(148 163 184 / 0.24);
+  --input: rgb(148 163 184 / 0.24);
+  --ring: rgb(14 165 233 / 0.55);
 }
 
 @theme inline {
@@ -79,9 +79,64 @@
   border-color: var(--border);
 }
 
+html {
+  min-height: 100%;
+  background: var(--background);
+}
+
 body {
   min-height: 100vh;
-  background: var(--background);
+  background:
+    radial-gradient(circle at top left, rgb(14 165 233 / 0.18), transparent 30%),
+    radial-gradient(circle at top right, rgb(99 102 241 / 0.18), transparent 28%),
+    radial-gradient(circle at 50% 110%, rgb(34 211 238 / 0.12), transparent 35%), var(--background);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.container-width {
+  width: min(100%, 80rem);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-width {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-width {
+    padding-inline: 2rem;
+  }
+}
+
+.section-spacing {
+  padding-block: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-block: 7rem;
+  }
+}
+
+.glass-card {
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 12px);
+  background: var(--card);
+  box-shadow: 0 24px 80px rgb(2 6 23 / 0.35);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
 }
